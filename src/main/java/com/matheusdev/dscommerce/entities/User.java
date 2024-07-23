@@ -14,10 +14,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
+    @Column(unique = true) // Essa coluna vai ser unica, não terá repetição em nível de banco sem precisar lembrar na aplicação
     private String email;
+
     private String phone;
+
     private LocalDate birthDate;
+
     private String password;
 
     @OneToMany(mappedBy = "client") // o nome é do atributo da classe Order, atributo client
