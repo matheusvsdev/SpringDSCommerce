@@ -1,7 +1,6 @@
 package com.matheusdev.dscommerce.entities;
 
 import jakarta.persistence.*;
-import org.aspectj.weaver.ast.Or;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

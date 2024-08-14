@@ -1,7 +1,5 @@
 package com.matheusdev.dscommerce.dto;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
-
 import java.time.Instant;
 
 public class CustomError {

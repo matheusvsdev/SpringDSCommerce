@@ -26,8 +26,9 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(Pageable pageable) { //Pageable paginar lista por quantidade escolhida
-        Page<ProductDTO> productDTO = productService.findAll(pageable);
+    public ResponseEntity<Page<ProductDTO>> findAll(
+            @RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) { //Pageable paginar lista por quantidade escolhida
+        Page<ProductDTO> productDTO = productService.findAll(name, pageable);
         return ResponseEntity.ok(productDTO);
     }
 
