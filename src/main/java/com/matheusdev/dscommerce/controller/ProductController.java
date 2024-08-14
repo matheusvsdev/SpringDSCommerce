@@ -1,6 +1,7 @@
 package com.matheusdev.dscommerce.controller;
 
 import com.matheusdev.dscommerce.dto.ProductDTO;
+import com.matheusdev.dscommerce.dto.ProductMinDTO;
 import com.matheusdev.dscommerce.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(
+    public ResponseEntity<Page<ProductMinDTO>> findAll(
             @RequestParam(name = "name", defaultValue = "") String name, Pageable pageable) { //Pageable paginar lista por quantidade escolhida
-        Page<ProductDTO> productDTO = productService.findAll(name, pageable);
+        Page<ProductMinDTO> productDTO = productService.findAll(name, pageable);
         return ResponseEntity.ok(productDTO);
     }
 
