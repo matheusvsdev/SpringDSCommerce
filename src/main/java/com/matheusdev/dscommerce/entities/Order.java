@@ -80,6 +80,10 @@ public class Order {
         this.payment = payment;
     }
 
+    public Set<OrderItem> getItems() {
+        return items;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
