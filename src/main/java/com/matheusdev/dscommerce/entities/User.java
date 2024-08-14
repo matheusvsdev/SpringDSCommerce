@@ -129,6 +129,10 @@ public class User implements UserDetails {
         return orders;
     }
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
