@@ -1,7 +1,9 @@
 package com.matheusdev.dscommerce.service;
 
+import com.matheusdev.dscommerce.dto.CategoryDTO;
 import com.matheusdev.dscommerce.dto.ProductDTO;
 import com.matheusdev.dscommerce.dto.ProductMinDTO;
+import com.matheusdev.dscommerce.entities.Category;
 import com.matheusdev.dscommerce.entities.Product;
 import com.matheusdev.dscommerce.repository.ProductRepository;
 import com.matheusdev.dscommerce.service.exceptions.DatabaseException;
@@ -72,5 +74,12 @@ public class ProductService {
         product.setDescription(productDTO.getDescription());
         product.setPrice(productDTO.getPrice());
         product.setImgUrl(productDTO.getImgUrl());
+
+        product.getCategories().clear();
+        for (CategoryDTO categoryDTO : productDTO.getCategories()) {
+            Category category = new Category();
+            category.setId(categoryDTO.getId());
+            product.getCategories().add(category);
+        }
     }
 }
