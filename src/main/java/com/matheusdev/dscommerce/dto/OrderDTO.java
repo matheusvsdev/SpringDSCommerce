@@ -3,6 +3,7 @@ package com.matheusdev.dscommerce.dto;
 import com.matheusdev.dscommerce.entities.Order;
 import com.matheusdev.dscommerce.entities.OrderItem;
 import com.matheusdev.dscommerce.entities.OrderStatus;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class OrderDTO {
 
     private PaymentDTO paymentDTO;
 
+    @NotEmpty(message = "Deve ter pelo menos um produto")
     private List<OrderItemDTO> itemDTOS = new ArrayList<>();
 
     public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO clientDTO, PaymentDTO paymentDTO) {
